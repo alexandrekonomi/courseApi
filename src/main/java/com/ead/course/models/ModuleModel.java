@@ -9,6 +9,7 @@ import lombok.Data;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
+import java.util.UUID;
 
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -19,7 +20,7 @@ public class ModuleModel implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private String moduleId;
+    private UUID moduleId;
     @Column(nullable = false, length = 150)
     private String title;
     @Column(nullable = false, length = 250)
