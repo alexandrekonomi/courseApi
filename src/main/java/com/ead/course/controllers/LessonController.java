@@ -40,7 +40,7 @@ public class LessonController {
         return ResponseEntity.status(HttpStatus.CREATED).body(lessonService.save(lessonModel));
     }
 
-    @DeleteMapping("/modules/{moduleId}/lesson/{lessonId}")
+    @DeleteMapping("/modules/{moduleId}/lessons/{lessonId}")
     public ResponseEntity<Object> deleteLesson(@PathVariable(value = "moduleId") UUID moduleId,
                                                @PathVariable(value = "lessonId") UUID lessonId) {
         Optional<LessonModel> lessonModelOptional = lessonService.findLessonIntoModule(moduleId, lessonId);
@@ -51,7 +51,7 @@ public class LessonController {
         return ResponseEntity.status(HttpStatus.OK).body("Lesson deleted successfully");
     }
 
-    @PutMapping("/modules/{moduleId}/lesson/{lessonId}")
+    @PutMapping("/modules/{moduleId}/lessons/{lessonId}")
     public ResponseEntity<Object> deleteLesson(@PathVariable(value = "moduleId") UUID moduleId,
                                                @PathVariable(value = "lessonId") UUID lessonId,
                                                @RequestBody @Valid LessonDto lessonDto) {
@@ -72,7 +72,7 @@ public class LessonController {
         return ResponseEntity.status(HttpStatus.OK).body(lessonService.findAllByModule(moduleId));
     }
 
-    @GetMapping("/modules/{moduleId}/lesson/{lessonId}")
+    @GetMapping("/modules/{moduleId}/lessons/{lessonId}")
     public ResponseEntity<Object> getOneLesson(@PathVariable(value = "moduleId") UUID moduleId,
                                                @PathVariable(value = "lessonId") UUID lessonId) {
 
