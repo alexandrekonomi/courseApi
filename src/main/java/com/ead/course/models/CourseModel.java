@@ -14,6 +14,7 @@ import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.Set;
 import java.util.UUID;
+
 @Data
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Entity
@@ -52,8 +53,8 @@ public class CourseModel implements Serializable {
     @OneToMany(mappedBy = "course", fetch = FetchType.LAZY)
     private Set<CourseUserModel> coursesUsers;
 
-    public CourseUserModel convertToCourseUserModel(UUID userId){
-        return new CourseUserModel(null, this, userId);
+    public CourseUserModel convertToCourseUserModel(UUID userId) {
+        return new CourseUserModel(null, userId, this);
     }
 
 }
